@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - SENAI</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+        .form-label{
+            font-size: 1.3em;
+            color: #565656;
+        }
+        .form-input{
+            border-radius: 8px;
+            border: 1px solid #96ad90;
+            height: 2.5em;
+            min-width: 20em;
+            outline: 0;
+            text-indent: 1em;
+            font-size: 1em;
+            color: #565656;
+        }
+        .c-header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 10rem;
+            width: 100vw;
+            background-color: #96ad90;
+        }
+        .c-header__navbar{
+            width: 80%;
+        }
+        .c-header__nav{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .c-header__nav-link{
+            color: #FFF;
+            cursor: pointer;
+            padding: 1em;
+            border: 1px solid #FFF;
+            border-radius: 1em;
+            font-weight: thin;
+            transform: translateY(10px);
+        }
+        .c-header__nav-link:hover{
+            color: #565656;
+            border: 1px solid #565656;
+            animation: hoverLink .2s ease-in-out alternate forwards;
+        }
+        .c-wrapper{
+            min-height: calc(100vh - 15rem);
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }    
+        .c-wrapper__title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #889d81;
+            font-size: 2em;
+            padding: .5em;
+            border-bottom: 2px solid #889d81;
+        }
+        .c-wrapper__form{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }    
+        .c-footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 5rem;
+            background-color: #565656;
+            color: white;
+        }
+
+        /* Modificadores */
+        .paint--red{
+            color: red;
+        }
+        .active{
+            background-color: white;
+            color: #565656;
+            border: 1px solid #565656;
+        }
+
+        /* Animações */
+        @keyframes hoverLink {
+            to{
+                font-weight: bold;
+                background-color: white;
+            }
+        }
+    </style>
+    <script>
+        /*
+        Regras de negócio:
+        1- Se a peça possuir um peso superior a 100 gramas, pode cadastrar
+        2- Dada a capacidade de cada caixa, caso a lista de peças seja superior a 10, imprima
+        uma mensagem informando não ter a capacidade suficiente
+        3- Caso a peça tenha um nome com quantidade inferior a 3 caracteres, informe uma mensagem de erro
+        */
+       var listaPecas = [
+           { name: 'Cilindro de roda traseira (burrinho de freio)', peso: 10},
+           { name: 'Sensor de temperatura (cebolinha de temperatura)', peso: 10},
+           { name: 'Termo Interruptor do radiador (cebolão do radiador)', peso: 10},
+           { name: 'Servofreio (hidrovácuo)', peso: 10},
+           { name: 'Interruptor de pressão do óleo (cebolinha do óleo)', peso: 10},
+           { name: 'Cilindro mestre de freio (bomba de freio)', peso: 10},
+           { name: 'Pinça de freio (caliper)', peso: 10},
+           { name: 'Tubo distribuidor do sistema de injeção (flauta)', peso: 10},
+           { name: 'Pistão (êmbolo)', peso: 10},
+           { name: 'Tubo de sucção do motor (pescador da bomba de óleo)', peso: 10},
+           { name: 'Eixo de virabrequim ou girabrequim (árvore de manivelas)', peso: 10},
+           { name: 'Retentor do volante do motor (retentor traseiro da árvore de manivelas)', peso: 10},
+           { name: 'Cilindro do bloco (camisa do bloco)', peso: 10},
+           { name: 'Pinhão impulsor de partida (bendix ou catraca)', peso: 10},
+        ];
+        
+        window.onload = ()=>{
+            getTitle();
+        }
+        
+        function selecionarMenu(link){
+            document.querySelector('.active').classList.remove('active');
+            link.classList.add('active')
+            getTitle()
+        }
+
+        function getTitle(){
+            let titulo = document.querySelector('.active').innerText;
+            if(titulo != undefined)
+            {
+                document.querySelector('.c-wrapper__title').innerHTML = titulo;
+            }
+            else
+            {
+                document.querySelector('.c-wrapper__title').innerHTML = '';
+            }
+        }
+
+    </script>
+</head>
+<body>  
+    <header class="c-header">
+        <nav class="c-header__navbar">
+            <ul class="c-header__nav">
+                <li onclick="selecionarMenu(this)" class="c-header__nav-link active">Peça por Peso</li>
+                <li onclick="selecionarMenu(this)" class="c-header__nav-link">Peças por Caixa</li>
+                <li onclick="selecionarMenu(this)" class="c-header__nav-link">Peças por Nome</li>
+                <li onclick="selecionarMenu(this)" class="c-header__nav-link">Sistema Integrado</li>
+            </ul>
+        </nav>
+    </header>
+    <main class="c-wrapper">
+        <div class="c-wrapper__title">
+            <!-- O javascript se encarregará de verificar qual dos links do menu está ativo e irá gerar o título -->
+        </div>
+        <div class="c-wrapper__form" data-menu="peca_por_peso">
+            <label class="form-label" for="">
+                Digite algum número: 
+                <input class="form-input" type="text">
+            </label>
+        </div>
+    </main>
+    <footer class="c-footer">
+        Feito com &nbsp; <span class="paint--red">♥</span> &nbsp; por um aspirante a programador e aluno do &nbsp; <b>SENAI</b>
+    </footer>
+
+</body>
+</html>
