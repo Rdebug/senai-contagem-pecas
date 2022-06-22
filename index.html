@@ -13,19 +13,47 @@
             box-sizing: border-box;
             font-family: 'Lato', sans-serif;
         }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number]{
+            -moz-appearance: none;
+        }
+        .alert{
+            font-size: 1em;
+            margin: 1em 0em;
+            padding: 0.3em 0em;
+            min-width: 100%;
+            text-align: center;
+            font-weight: 300;
+            position: absolute;
+            top: 0;
+        }
         .form-label{
-            font-size: 1.3em;
+            font-size: 1em;
             color: #565656;
         }
         .form-input{
             border-radius: 8px;
             border: 1px solid #96ad90;
-            height: 2.5em;
+            height: 2em;
             min-width: 20em;
             outline: 0;
             text-indent: 1em;
             font-size: 1em;
             color: #565656;
+        }
+        .btn{
+            margin: 1rem;
+            width: 10rem;
+            height: 2rem;
+            cursor: pointer;
+            border: 1px solid #96ad90;
+            background-color: #96ad90;
+            border-radius: 8px;
+            color: white;
         }
         .c-header{
             display: flex;
@@ -83,6 +111,7 @@
             align-items: center;
             height: 100%;
             width: 100%;
+            position: relative;
         }    
         .c-footer{
             display: flex;
@@ -102,7 +131,26 @@
             color: #565656;
             border: 1px solid #565656;
         }
-
+        .btn--large{
+            height: 3em;
+            min-width: 40em;
+        }
+        .btn--disabled{
+            cursor: not-allowed;
+            background-color: #BBB;
+        }
+        .alert--success{
+            background-color: rgb(117, 221, 162);
+            color: rgb(7, 92, 37);
+        }
+        .alert--default{
+            background-color: rgb(170, 170, 251);
+            color: rgb(7, 7, 92);
+        }
+        .alert--error{
+            background-color: rgb(249, 108, 108);
+            color: rgb(96, 2, 2);
+        }
         /* Animações */
         @keyframes hoverLink {
             to{
@@ -140,12 +188,13 @@
             getTitle();
         }
         
-        function selecionarMenu(link){
+        // Função para alternar os menus e ao clicar
+        function selectMenu(link){
             document.querySelector('.active').classList.remove('active');
             link.classList.add('active')
             getTitle()
         }
-
+        // Função para gerar o título do wrapper ao selecionar o menu
         function getTitle(){
             let titulo = document.querySelector('.active').innerText;
             if(titulo != undefined)
@@ -157,17 +206,62 @@
                 document.querySelector('.c-wrapper__title').innerHTML = '';
             }
         }
+        // Função para verificar se o peso ultrapassa o peso de 100 gramas
+        // para atender à primeira questão do exercício
+        function verifyWeight(value){
+            let button = document.getElementById('submitByWeight');
+            if(value < 100){
+                button.classList.add('btn--disabled');
+                activeAlert('error', 'O peso da peça deve ser <b>superior a 100 gramas</b>');
+            }else{
+                button.classList.remove('btn--disabled');
+                removeAlert();
+            }
+        }
+        // Função para auxiliar visualmente o usuário com mensagens de 
+        // erro, sucesso ou avisos, dependendo da situação
+        function submitFormWeight(){
+            weight = document.getElementById('weight');
+            weightValue = parseFloat(weight.value);
+            if(weightValue > 100){
+                weight.value = '';
+                activeAlert('success', 'Produto cadastrado com sucesso');
+                setTimeout(()=>{
+                    removeAlert();
+                },5000);
+            }
+        }
+        function activeAlert(type ='default', message){
+            removeAlert();
+            let alert = document.querySelector('.alert');
+            alert.classList.add('alert--'+type);
+            alert.innerHTML = message;
+        }
+        // Função auxiliar para remover os alerts quando sua existência
+        // não atende as condições atuais de uso do sistema
+        function removeAlert(){
+            let alert = document.querySelector('.alert');
+            listTypes = [
+                'default',
+                'error',
+                'success'
+            ]
+            listTypes.map((t)=>{
+                alert.classList.remove('alert--'+t)
+            });
+            alert.innerHTML = "";
 
+        }
     </script>
 </head>
 <body>  
     <header class="c-header">
         <nav class="c-header__navbar">
             <ul class="c-header__nav">
-                <li onclick="selecionarMenu(this)" class="c-header__nav-link active">Peça por Peso</li>
-                <li onclick="selecionarMenu(this)" class="c-header__nav-link">Peças por Caixa</li>
-                <li onclick="selecionarMenu(this)" class="c-header__nav-link">Peças por Nome</li>
-                <li onclick="selecionarMenu(this)" class="c-header__nav-link">Sistema Integrado</li>
+                <li onclick="selectMenu(this)" class="c-header__nav-link active">Peça por Peso</li>
+                <li onclick="selectMenu(this)" class="c-header__nav-link">Peças por Caixa</li>
+                <li onclick="selectMenu(this)" class="c-header__nav-link">Peças por Nome</li>
+                <li onclick="selectMenu(this)" class="c-header__nav-link">Sistema Integrado</li>
             </ul>
         </nav>
     </header>
@@ -176,10 +270,12 @@
             <!-- O javascript se encarregará de verificar qual dos links do menu está ativo e irá gerar o título -->
         </div>
         <div class="c-wrapper__form" data-menu="peca_por_peso">
+            <div class="alert"></div>
             <label class="form-label" for="">
-                Digite algum número: 
-                <input class="form-input" type="text">
+                Digite o peso da peça (gramas): 
+                <input id="weight" onkeyup="verifyWeight(this.value)" class="form-input" type="number">
             </label>
+            <button id="submitByWeight" onclick="submitFormWeight()" class="btn btn--disabled">Cadastrar Produto</button>
         </div>
     </main>
     <footer class="c-footer">
