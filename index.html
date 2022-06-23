@@ -29,11 +29,15 @@
             text-align: center;
             font-weight: 300;
             position: absolute;
-            top: 0;
         }
         .form-label{
             font-size: 1em;
             color: #565656;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 50%;
+            margin: 1rem 0rem;
         }
         .form-input{
             border-radius: 8px;
@@ -90,9 +94,15 @@
             min-height: calc(100vh - 15rem);
             width: 100vw;
             display: flex;
+            align-items: center;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+
         }    
         .c-wrapper__title{
+            min-height: 80px;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -104,15 +114,41 @@
             border-bottom: 2px solid #889d81;
         }
         .c-wrapper__form{
-            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
             width: 100%;
-            position: relative;
+            margin-top: 100px;
         }    
+        .c-wrapper__form[data-menu = 'peca_por_peso']{
+            display: flex;
+        }
+        .c-wrapper__form[data-menu = 'peca_por_caixa']{
+            display: none;
+        }
+        .c-wrapper__form[data-menu = 'peca_por_nome']{
+            display: none;
+        }
+        .c-wrapper__result{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #eee;
+            width: 50%;
+            transform: translateY(100vh);
+        }
+        .c-wrapper__result-table{
+            font-size: 0.7em;
+            border-collapse: collapse;
+            text-align: center;
+            width: 100%;
+        }
+        .c-wrapper__result-table td{
+            padding: 10px;
+        }
+        
         .c-footer{
             display: flex;
             justify-content: center;
@@ -135,6 +171,10 @@
             height: 3em;
             min-width: 40em;
         }
+        .btn--info{
+            background-color: rgb(161, 163, 255);
+            color: rgb(7, 7, 92);
+        }
         .btn--disabled{
             cursor: not-allowed;
             background-color: #BBB;
@@ -144,7 +184,7 @@
             color: rgb(7, 92, 37);
         }
         .alert--default{
-            background-color: rgb(170, 170, 251);
+            background-color: rgb(128, 128, 255);
             color: rgb(7, 7, 92);
         }
         .alert--error{
@@ -167,7 +207,7 @@
         uma mensagem informando não ter a capacidade suficiente
         3- Caso a peça tenha um nome com quantidade inferior a 3 caracteres, informe uma mensagem de erro
         */
-       var listaPecas = [
+        var listaPecas = [
            { name: 'Cilindro de roda traseira (burrinho de freio)', peso: 10},
            { name: 'Sensor de temperatura (cebolinha de temperatura)', peso: 10},
            { name: 'Termo Interruptor do radiador (cebolão do radiador)', peso: 10},
@@ -184,16 +224,93 @@
            { name: 'Pinhão impulsor de partida (bendix ou catraca)', peso: 10},
         ];
         
-        window.onload = ()=>{
-            getTitle();
+
+               /* ----------------------------- RESOLUÇÃO DOS EXERCÍCIOS PROPROSTOS -------------------------------------------- */
+        // Função para verificar se o peso digitado ultrapassa o peso de 100 gramas
+        // para atender à primeira questão do exercício
+        function verifyWeight(value){
+            let button = document.getElementById('submitByWeight');
+            if(value < 100){
+                button.classList.add('btn--disabled');
+                activeAlert('error', 'O peso da peça deve ser <b>superior a 100 gramas</b>');
+            }else{
+                button.classList.remove('btn--disabled');
+                removeAlert();
+            }
         }
         
-        // Função para alternar os menus e ao clicar
+        // Função para permitir o cadastro caso a condição seja maior que 100 gramas
+        function submitFormByWeight(){
+            let weight = document.getElementById('weight');
+            weightValue = parseFloat(weight.value);
+            if(weightValue > 100){
+                weight.value = '';
+                activeAlert('success', 'Produto cadastrado com sucesso');
+                setTimeout(()=>{
+                    removeAlert();
+                },5000);
+            }
+        }
+
+        function submitPiecesInBox(){
+            let quantityPieces = countPieces();
+            if(quantityPieces > 10){
+                activeAlert('error', "A quantidade de peças por caixa não pode ser superior a 10");
+            } else{
+                activeAlert('success', `Peças cadastradas na caixa com sucesso. <b>Número de controle ${Math.floor(Math.random() *1000) + 100 }</b>`)
+                document.getElementById('result').innerHTML = '';
+                let cart = document.querySelector('.c-wrapper__result');
+                cart.style.transform = "translateY(100vh)"
+
+            }
+        }
+
+        function verifyLength(value){
+            let button = document.getElementById('submitByLength');
+            if(value.length < 4){
+                button.classList.add('btn--disabled');
+                activeAlert('error', 'O nome da peça deve conter <b>mais que 3 caracteres</b>');
+            }else{
+                button.classList.remove('btn--disabled');
+                removeAlert();
+            }
+        }
+        
+        function submitFormByLength(){
+            let name= document.getElementById('lengthNamePiece');
+            length = name.value.length;
+            if(length > 3){
+                name.value = '';
+                activeAlert('success', 'Nome da peça com sucesso');
+                setTimeout(()=>{
+                    removeAlert();
+                },5000);
+            }
+        }
+        /* ----------------------------- FIM DA RESOLUÇÃO DOS EXERCÍCIOS PROPROSTOS -------------------------------------- */
+
+        
+        window.onload = ()=>{
+            getTitle();
+            loadAllPieces();
+        }
+        
+        // Função para alternar os menus e formulários ao clicar nos links da navbar
         function selectMenu(link){
+            let cart = document.querySelector('.c-wrapper__result');
+            cart.style.transform = "translateY(100vh)"
+            if(link.innerText == "Peças por Caixa" && countPieces() > 0){
+                cart.style.transform = "translateY(0vh)"
+            }
             document.querySelector('.active').classList.remove('active');
             link.classList.add('active')
-            getTitle()
+            removeForm();
+            activeForm = link.getAttribute('data-link');
+            document.querySelector('[data-menu = '+activeForm+']').style.display = "flex"
+            getTitle();
+            removeAlert();
         }
+        
         // Função para gerar o título do wrapper ao selecionar o menu
         function getTitle(){
             let titulo = document.querySelector('.active').innerText;
@@ -206,37 +323,59 @@
                 document.querySelector('.c-wrapper__title').innerHTML = '';
             }
         }
-        // Função para verificar se o peso ultrapassa o peso de 100 gramas
-        // para atender à primeira questão do exercício
-        function verifyWeight(value){
-            let button = document.getElementById('submitByWeight');
-            if(value < 100){
-                button.classList.add('btn--disabled');
-                activeAlert('error', 'O peso da peça deve ser <b>superior a 100 gramas</b>');
-            }else{
-                button.classList.remove('btn--disabled');
-                removeAlert();
+        
+        // Função que carrega a lista de peças cadastradas
+        function loadAllPieces(){
+            let select =  document.getElementById('piece');
+            listaPecas.map((piece)=>{
+                let option =   document.createElement("option");
+                option.text = piece.name;
+                option.value = piece.name;
+                select.appendChild(option);
+            });
+        }
+        
+        // Adiciona itens ao campo de resultado antes de confirmar o fechamento de cada caixa com seus produtos
+        function loadCart(){
+            let cart = document.querySelector('.c-wrapper__result');
+            let piece = document.getElementById('piece').value;
+            if(piece !== "" && piece !== undefined){
+                cart.style.transform = "translateY(0vh)"
+                addPiece(piece);
             }
         }
+        
+        function addPiece(piece){
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+            td.text = piece;
+            document.getElementById('result').appendChild(tr)
+            tr.appendChild(td)
+            td.append(piece)
+            let total = countPieces();
+            document.getElementById('total').innerHTML = total
+        }
+
+        // Função de contar peças
+        function countPieces(){
+            let total = document.querySelectorAll('td').length ;
+            return total;
+        }
+
+ 
+        
+        
         // Função para auxiliar visualmente o usuário com mensagens de 
         // erro, sucesso ou avisos, dependendo da situação
-        function submitFormWeight(){
-            weight = document.getElementById('weight');
-            weightValue = parseFloat(weight.value);
-            if(weightValue > 100){
-                weight.value = '';
-                activeAlert('success', 'Produto cadastrado com sucesso');
-                setTimeout(()=>{
-                    removeAlert();
-                },5000);
-            }
-        }
         function activeAlert(type ='default', message){
+            let heightTitle = document.querySelector('.c-wrapper__title').offsetHeight;
             removeAlert();
             let alert = document.querySelector('.alert');
+            alert.style.top = `${heightTitle}px`;
             alert.classList.add('alert--'+type);
             alert.innerHTML = message;
         }
+
         // Função auxiliar para remover os alerts quando sua existência
         // não atende as condições atuais de uso do sistema
         function removeAlert(){
@@ -252,15 +391,28 @@
             alert.innerHTML = "";
 
         }
+        
+        function removeForm(){
+            listForms = [
+                'peca_por_peso',
+                'peca_por_caixa',
+                'peca_por_nome'
+            ]
+            listForms.map((f)=>{
+                document.querySelector('[data-menu = '+f+']').style.display = "none";
+            });
+            alert.innerHTML = "";
+
+        }
     </script>
 </head>
 <body>  
     <header class="c-header">
         <nav class="c-header__navbar">
             <ul class="c-header__nav">
-                <li onclick="selectMenu(this)" class="c-header__nav-link active">Peça por Peso</li>
-                <li onclick="selectMenu(this)" class="c-header__nav-link">Peças por Caixa</li>
-                <li onclick="selectMenu(this)" class="c-header__nav-link">Peças por Nome</li>
+                <li data-link = 'peca_por_peso' onclick="selectMenu(this)" class="c-header__nav-link active">Peça por Peso</li>
+                <li data-link = 'peca_por_caixa' onclick="selectMenu(this)" class="c-header__nav-link">Peças por Caixa</li>
+                <li data-link = 'peca_por_nome' onclick="selectMenu(this)" class="c-header__nav-link">Peças por Nome</li>
                 <li onclick="selectMenu(this)" class="c-header__nav-link">Sistema Integrado</li>
             </ul>
         </nav>
@@ -269,13 +421,41 @@
         <div class="c-wrapper__title">
             <!-- O javascript se encarregará de verificar qual dos links do menu está ativo e irá gerar o título -->
         </div>
+        <div class="alert"></div>
         <div class="c-wrapper__form" data-menu="peca_por_peso">
-            <div class="alert"></div>
-            <label class="form-label" for="">
+            <label class="form-label" for="weight">
                 Digite o peso da peça (gramas): 
                 <input id="weight" onkeyup="verifyWeight(this.value)" class="form-input" type="number">
             </label>
-            <button id="submitByWeight" onclick="submitFormWeight()" class="btn btn--disabled">Cadastrar Produto</button>
+            <button id="submitByWeight" onclick="submitFormByWeight()" class="btn btn--disabled">Cadastrar Produto</button>
+        </div>
+        <div class="c-wrapper__form" data-menu="peca_por_caixa">
+            <label class="form-label" for="piece">
+                Peça:
+                <select id="piece" class="form-input">
+                    <option value=""></option>
+                </select>
+            </label>
+            <button  onclick="loadCart()" class="btn btn--info">Adicionar Produto</button>
+            <div class="c-wrapper__result">
+                <button id="submitByBox" onclick="submitPiecesInBox()" class="btn btn--success">Salvar a Lista de Peças</button>
+                <table class="c-wrapper__result-table">
+                    <thead>
+                        <th>Peça</th>
+                        <th>Total: <span id="total"></span></th>
+                    </thead>
+                    <tbody id="result">
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="c-wrapper__form" data-menu="peca_por_nome">
+            <label class="form-label" for="submitByLength">
+                Digite o nome da peça: 
+                <input id="lengthNamePiece" onkeyup="verifyLength(this.value)" class="form-input" type="text">
+            </label>
+            <button id="submitByLength" onclick="submitFormByLength()" class="btn btn--disabled">Cadastrar Produto</button>
         </div>
     </main>
     <footer class="c-footer">
