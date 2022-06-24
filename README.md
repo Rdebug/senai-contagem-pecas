@@ -68,7 +68,7 @@ if(!isNaN(peso))
 
 ```
 // Armazenar na variável a quantidade de peças que está na nossa variável peso
-let quantidadePecas = pecas.lenght;
+let quantidadePecas = pecas.length;
 ```
 
 ```
@@ -95,7 +95,7 @@ let nomePeca = prompt('Digite o nome da peça a ser cadastrada');
 
 ```
 // Armazenar na variável a quantidade de letras do nome informado pelo usuário
-let quantidadeLetrasPeca = nomePeca.lenght;
+let quantidadeLetrasPeca = nomePeca.length;
 ```
 
 ```
