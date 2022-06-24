@@ -225,7 +225,7 @@
         ];
         
 
-               /* ----------------------------- RESOLUÇÃO DOS EXERCÍCIOS PROPROSTOS -------------------------------------------- */
+        /* ----------------------------- RESOLUÇÃO DOS EXERCÍCIOS PROPROSTOS -------------------------------------------- */
         // Função para verificar se o peso digitado ultrapassa o peso de 100 gramas
         // para atender à primeira questão do exercício
         function verifyWeight(value){
@@ -267,9 +267,9 @@
 
         function verifyLength(value){
             let button = document.getElementById('submitByLength');
-            if(value.length < 4){
+            if(value.length < 3){
                 button.classList.add('btn--disabled');
-                activeAlert('error', 'O nome da peça deve conter <b>mais que 3 caracteres</b>');
+                activeAlert('error', 'O nome da peça deve conter <b>mais que 2 caracteres</b>');
             }else{
                 button.classList.remove('btn--disabled');
                 removeAlert();
@@ -279,9 +279,9 @@
         function submitFormByLength(){
             let name= document.getElementById('lengthNamePiece');
             length = name.value.length;
-            if(length > 3){
+            if(length > 2){
                 name.value = '';
-                activeAlert('success', 'Nome da peça com sucesso');
+                activeAlert('success', 'Nome da peça cadastrado com sucesso');
                 setTimeout(()=>{
                     removeAlert();
                 },5000);
@@ -289,7 +289,7 @@
         }
         /* ----------------------------- FIM DA RESOLUÇÃO DOS EXERCÍCIOS PROPROSTOS -------------------------------------- */
 
-        
+
         window.onload = ()=>{
             getTitle();
             loadAllPieces();
@@ -413,7 +413,6 @@
                 <li data-link = 'peca_por_peso' onclick="selectMenu(this)" class="c-header__nav-link active">Peça por Peso</li>
                 <li data-link = 'peca_por_caixa' onclick="selectMenu(this)" class="c-header__nav-link">Peças por Caixa</li>
                 <li data-link = 'peca_por_nome' onclick="selectMenu(this)" class="c-header__nav-link">Peças por Nome</li>
-                <li onclick="selectMenu(this)" class="c-header__nav-link">Sistema Integrado</li>
             </ul>
         </nav>
     </header>
@@ -461,6 +460,5 @@
     <footer class="c-footer">
         Feito com &nbsp; <span class="paint--red">♥</span> &nbsp; por um aspirante a programador e aluno do &nbsp; <b>SENAI</b>
     </footer>
-
 </body>
 </html>
