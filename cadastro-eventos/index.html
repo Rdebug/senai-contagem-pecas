@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro de Eventos</title>
+</head>
+<body>
+    <div class="c-modal invisible">
+        <div class="c-modal__title">
+            <hr>
+        </div>
+        <div class="c-modal__content">
+        </div>
+    </div>
+    <!-- Listagem de Eventos -->
+    <div data-tela="inicio" class="c-container">
+        <h4>Todos os Eventos</h4>
+        <hr>
+        <button id="novo_evento" class="c-container__btn btn-success">Cadastrar Novo Evento</button>
+        <hr>
+        <table>
+            <thead>
+                <th>Data</th>
+                <th>Palestrante</th>
+                <th>Tema</th>
+                <th>Participantes</th>
+            </thead>
+            <tbody id="eventos">
+                
+            </tbody>
+        </table>
+
+    </div>
+    <!-- Fim Listagem de Eventos -->
+    
+    <!-- Formulário Data -->
+    <div data-tela="data" class="c-container invisible">
+        <label for="data" class="c-container__label">Informe a data do evento:</label>
+        <div>
+            <input class="c-container__form-control" id="data" type="date">
+        </div>
+        <button id="salvar_data" class="c-container__btn btn-success">Avançar</button>
+    </div>
+    <!-- !Formulário Data -->
+
+    <!-- Formulário Participante -->
+    <div data-tela="participante" class="c-container invisible">
+        <div> Quantidade de Registros: <span id="qtde_registros"></span></div>
+        <div style="margin-bottom: 50px;"> <button id="registros_aleatorios" type="button">Gerar Registros Aleatórios</button></div>
+        <label for="participante" class="c-container__label">Nome do Participante:</label>
+        <div>
+            <input class="c-container__form-control" id="nome_participante" type="text" placeholder="Ex.: Virgulino">
+        </div>
+        <label for="participante" class="c-container__label">Informe sua Idade:</label>
+        <div>
+            <input class="c-container__form-control" id="idade_participante" type="number" placeholder="Ex.: 20">
+        </div>
+        <button type="button" id="salvar_participante" class="c-container__btn btn-success">Avançar</button>
+    </div>
+    <!-- !Formulário Participante -->
+
+    <!-- Formulário Palestrante -->
+    <div data-tela="palestrante" class="c-container invisible">
+        <label for="palestrante" class="c-container__label">Nome do Palestrante:</label>
+        <div>
+            <input class="c-container__form-control" id="palestrante" type="text">
+        </div>
+        <button type="button" id="salvar_palestrante" class="c-container__btn btn-success">Avançar</button>
+    </div>
+    <!-- !Formulário Palestrante -->
+
+    <!-- Fim da aplicação -->
+    <div id="resultado" class="c-container invisible">
+        <div class="c-card">
+            <div class="card__title">
+                Cadastrado com sucesso!
+            </div>
+            <div class="content">
+                <p>Idade: 18 anos</p>
+                <p>Motivo: Idade menor que 18 anos</p>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

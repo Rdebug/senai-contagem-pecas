@@ -18,6 +18,3 @@ A empresa Savinis, focada no desenvolvimento de software de alta performance, co
 - Aplicar técnicas de programação e ferramentas para desenvolvimento do código.
 - Aplicar linguagem de programação para implementação do sistema.
 
-<!-- 
-asdad
- -->
