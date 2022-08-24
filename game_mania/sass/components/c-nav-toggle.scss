@@ -1,0 +1,73 @@
+$component-name: "c-nav-toggle";
+
+.#{$component-name} {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+
+    @include media-breakpoint-up(md) {
+        display: none;
+    }
+
+    &__menu {
+        color: setColor(light);
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__menu-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+
+        li{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            #playstation
+            {
+                background-color: setColor(blue);
+            }
+            #xbox
+            {
+                background-color: setColor(green);
+                color: setColor(dark);
+            }
+            #perifericos
+            {
+                background-color: setColor(red);
+            }
+            #hardware
+            {
+                background-color: setColor(dark-shadow);
+            }
+
+            a{
+                width: 80%;
+                text-align: center;
+                padding: 10px 0px;
+                border-radius: 7px;
+            }
+        }
+    }
+    &__menu-close{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+   
+}

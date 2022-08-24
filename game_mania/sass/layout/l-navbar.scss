@@ -1,0 +1,24 @@
+$layout-name: "l-navbar";
+
+.#{$layout-name} {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__wrapper {
+        display: none;
+        @include media-breakpoint-up(md) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: setColor(light);
+            height: $heightNavbar;
+            width: 100%;
+            max-width: $tabletMaxWidth;
+        }
+
+        @include media-breakpoint-up(lg) {
+            max-width: $defaultMaxWidth;
+        }
+    }
+}

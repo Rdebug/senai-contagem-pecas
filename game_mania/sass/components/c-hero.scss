@@ -1,0 +1,32 @@
+$component-name: "c-hero";
+
+.#{$component-name} {
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__wrapper {
+        height: 100%;
+        width: 100%;
+        @include media-breakpoint-up(md) {
+            // max-width: $tabletMaxWidth;
+        }
+
+        @include media-breakpoint-up(lg) {
+            // max-width: $defaultMaxWidth;
+        }
+
+    }
+
+    &__slide {
+        position: relative;
+        img {
+            max-width: 100%;
+        }
+    }
+
+}

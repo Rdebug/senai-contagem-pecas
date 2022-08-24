@@ -1,0 +1,24 @@
+$component-name: "c-login";
+
+.#{$component-name}{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: setSize(small);
+    
+    input
+    {
+        padding: 5px 15px;
+        background-color: setColor(blue);
+        color: setColor(light);
+        outline: none;
+        cursor: pointer;
+        border: 1px solid setColor(grey);
+        border-radius: 7px;
+
+    }
+    @include media-breakpoint-up(md)
+    {
+        display: flex;
+    }
+}

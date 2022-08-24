@@ -1,0 +1,29 @@
+$layout-name: "l-footer";
+
+.#{$layout-name}{
+    display: flex;
+    justify-content: center;
+    background-color: setColor(light);
+    min-height: $heightFooter;
+    margin-top: 20px;
+    padding: 20px 0px;
+    &__wrapper
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: $heightHeader;
+        width: 100%;
+        max-width: $defaultMaxWidth;
+
+        @include media-breakpoint-up(md) {
+            max-width: $tabletMaxWidth;
+            flex-direction: row;
+        }
+
+        @include media-breakpoint-up(lg) {
+            max-width: $defaultMaxWidth;
+            flex-direction: row;
+        } 
+    }
+}

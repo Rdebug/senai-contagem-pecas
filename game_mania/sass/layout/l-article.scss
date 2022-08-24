@@ -1,0 +1,20 @@
+$component-name: "l-article";
+
+.#{$component-name} {
+   min-height: 600px;
+   width: 100%;
+   background-image: url('../images/background.webp');
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    &__wrapper{
+        @include media-breakpoint-up(md) {
+            max-width: $tabletMaxWidth;
+        }
+
+        @include media-breakpoint-up(lg) {
+            max-width: $defaultMaxWidth;
+        }
+
+    }
+}
