@@ -253,10 +253,12 @@
             <div class="c-footer__social-media">
                 <div class="c-footer__newsletter">
                     <p>Receba as Últimas Novidades</p>
-                    <div class="c-footer__input-group">
-                        <input placeholder="Seu melhor E-mail" class="c-input" type="text">
-                        <button>Cadastrar</button>
-                    </div>
+                    <form onsubmit="cadastrarEmail()">    
+                        <div class="c-footer__input-group">
+                            <input required placeholder="Seu melhor E-mail" id="email" class="c-input" type="email">
+                            <button>Cadastrar</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="c-footer__social-links">
                     <div class="c-footer__links-title">REDES SOCIAIS</div>

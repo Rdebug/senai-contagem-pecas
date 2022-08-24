@@ -25,3 +25,9 @@ function setTopo() {
     $(window).scrollTop(0);
 }
 
+function cadastrarEmail()
+{
+    let email = document.querySelector('#email');
+    alert(`Email ${email.value} cadastrado com sucesso!`);
+}
+
