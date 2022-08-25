@@ -1,17 +1,5 @@
 var menu = document.querySelector('.c-nav-toggle__menu');
 
-$(document).ready(function () {
-    $('.c-hero__wrapper').slick({
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        fade: true,
-        cssEase: 'linear',
-        infinite: true,
-        arrows: false
-    });
-})
-
 function abrirMenu() {
     setTopo();
     menu.style.display = 'flex';
@@ -29,5 +17,23 @@ function cadastrarEmail()
 {
     let email = document.querySelector('#email');
     alert(`Email ${email.value} cadastrado com sucesso!`);
+}
+
+function logar()
+{
+    let email = document.querySelector('#email');
+    let senha = document.querySelector('#password');
+    alert('Usuário logado com sucesso');
+
+    if(senha.lenght > 0)
+    {
+        deslogar();
+        window.localStorage.setItem('login', email);
+    }
+}
+
+function deslogar()
+{
+    window.localStorage.removeItem('login');
 }
 
