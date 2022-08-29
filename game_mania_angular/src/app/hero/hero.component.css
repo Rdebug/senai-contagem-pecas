@@ -1,0 +1,19 @@
+.c-hero {
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-hero__wrapper {
+  height: 100%;
+  width: 100%;
+}
+.c-hero__slide {
+  position: relative;
+}
+.c-hero__slide img {
+  max-width: 100%;
+}

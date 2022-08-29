@@ -1,0 +1,43 @@
+$component-name: "c-search";
+
+.#{$component-name} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    flex: 1;
+
+    &__input {
+        border-radius: 4px;
+        outline: none;
+        border: 2px solid setColor(green);
+        width: 400px;
+        display: flex;
+        width: 90%;
+        input 
+        {
+            background-color: setColor(grey);
+            color: setColor(dark);
+            outline: none;
+            border: none;
+            height: 100%;
+            padding: 10px;
+            flex: 1;
+        }
+        i
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: setColor(grey);
+            padding: 0px 15px;
+            background-color: none;
+            cursor: pointer;
+            color: setColor(dark);
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        display: flex;
+    }
+}

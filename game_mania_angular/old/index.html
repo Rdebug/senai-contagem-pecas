@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Mania</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="libs/slick/slick/slick.css">
+    <link rel="stylesheet" href="libs/slick/slick/slick-theme.css">
+    <link rel="stylesheet" href="fontawesome-6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="c-nav-toggle__menu">
+        <div onclick="fecharMenu()" class="c-nav-toggle__menu-close">X</div>
+        <ul class="c-nav-toggle__menu-content">
+            <li><a id="playstation">PLAYSTATION</a></li>
+            <li><a id="xbox">XBOX</a></li>
+            <li><a id="perifericos">PERIFÉRICOS</a></li>
+            <li><a id="hardware">HARDWARE</a></li>
+        </ul>
+    </div>
+    <header class="l-header">
+        <div class="l-header__wrapper">
+            <div onclick="abrirMenu()" class="c-nav-toggle"><i class="fa-solid fa-bars"></i></div>
+            <div class="c-logo">
+                <object id="logo" alt="logo" data="images/business/logo.svg"></object>
+            </div>
+            <div class="c-search">
+                <div class="c-search__input">
+                    <input type="text" class="" placeholder="O que você procura?">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="c-cart">
+                <a href="login.html"><i id="user-icon" class="fa-solid fa-user"></i></a>
+                <i id="cart-icon" class="fa-solid fa-cart-shopping"></i>
+                <i id="favorite-icon" class="fa-solid fa-heart"></i>
+            </div>
+            <div class="c-login">
+                <a href="login.html"><input type="button" value="Login"></a>
+            </div>
+        </div>
+    </header>
+    <nav class="l-navbar">
+        <div class="l-navbar__wrapper">
+            <ul class="c-nav">
+                <li><a id="playstation">PLAYSTATION</a></li>
+                <li><a id="xbox">XBOX</a></li>
+                <li><a id="perifericos">PERIFÉRICOS</a></li>
+                <li><a id="hardware">HARDWARE</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="c-hero">
+        <div class="c-hero__wrapper">
+            <div class="c-hero__slide">
+                <img src="images/banner-horizon-forbidden.jpg" alt="">
+            </div>
+            <div class="c-hero__slide">
+                <img src="images/banner-spiderman-miles.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <main class="l-main">
+        <div class="l-main__wrapper">
+            <section class="c-section">
+                <div class="c-section__title">+ PRODUTOS <a href="#">Ver Mais</a></div>
+                <div class="c-section__products">
+                    <div class="c-card">
+                        <div class="c-card__image">
+                            <img src="images/product-oculos_vr.png" alt="">
+                        </div>
+                        <div class="c-card__title">
+                            ÓCULOS PS VR
+                            <i id="favorite-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="c-card__price">
+                            <p>R$ 360,00</p>
+                            <small>ou 10x de R$ 36,00</small>
+                        </div>
+                        <div class="c-card__button">
+                            <button>Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card__image">
+                            <img src="images/product-placa_rtx.webp" alt="">
+                        </div>
+                        <div class="c-card__title text-small">
+                            GEFORCE RTX 3070
+                            <i id="favorite-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="c-card__price">
+                            <p>R$ 360,00</p>
+                            <small>ou 10x de R$ 36,00</small>
+                        </div>
+                        <div class="c-card__button">
+                            <button>Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card__image">
+                            <img src="images/product-mouse_razer.png" alt="">
+                        </div>
+                        <div class="c-card__title text-small">
+                            MOUSE GAMER RAZOR
+                            <i id="favorite-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="c-card__price">
+                            <p>R$ 360,00</p>
+                            <small>ou 10x de R$ 36,00</small>
+                        </div>
+                        <div class="c-card__button">
+                            <button>Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card__image">
+                            <img src="images/product-cadeira.png" alt="">
+                        </div>
+                        <div class="c-card__title text-small">
+                            CADEIRA GAMER ALPHA
+                            <i id="favorite-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="c-card__price">
+                            <p>R$ 360,00</p>
+                            <small>ou 10x de R$ 36,00</small>
+                        </div>
+                        <div class="c-card__button">
+                            <button>Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="c-section__more">
+                    <button>Ver mais</button>
+                </div>
+            </section>
+
+            <section class="c-section">
+                <div class="c-section__title">DESTAQUES <a href="#">Ver Mais</a></div>
+                <div class="c-section__products">
+                    <div class="c-card">
+                        <div class="c-card__image">
+                            <img src="images/game-forza.jpg" alt="">
+                        </div>
+                        <div class="c-card__title">
+                            FORZA HORIZON 5
+                            <i id="favorite-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="c-card__price">
+                            <p>R$ 360,00</p>
+                            <small>ou 10x de R$ 36,00</small>
+                        </div>
+                        <div class="c-card__button">
+                            <button>Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card__image">
+                            <img src="images/game-spiderman.jpeg" alt="">
+                        </div>
+                        <div class="c-card__title text-small">
+                            SM MILES MORALES
+                            <i id="favorite-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="c-card__price">
+                            <p>R$ 360,00</p>
+                            <small>ou 10x de R$ 36,00</small>
+                        </div>
+                        <div class="c-card__button">
+                            <button>Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card__image">
+                            <img src="images/game-xcom2.jpeg" alt="">
+                        </div>
+                        <div class="c-card__title text-small">
+                            XCOM 2
+                            <i id="favorite-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="c-card__price">
+                            <p>R$ 360,00</p>
+                            <small>ou 10x de R$ 36,00</small>
+                        </div>
+                        <div class="c-card__button">
+                            <button>Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-card__image">
+                            <img src="images/game-forbidden.webp" alt="">
+                        </div>
+                        <div class="c-card__title text-small">
+                            FORBIDDEN WEST
+                            <i id="favorite-icon" class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="c-card__price">
+                            <p>R$ 360,00</p>
+                            <small>ou 10x de R$ 36,00</small>
+                        </div>
+                        <div class="c-card__button">
+                            <button>Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="c-section__more">
+                    <button>Ver mais</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <article class="l-article">
+        <div class="l-article__wrapper">
+            <div class="c-article">
+                <div class="c-article__image">
+                    <img src="images/kratos.png" alt="">
+                </div>
+                <div class="c-article__ads">
+                    <div class="c-article__ads-title">
+                        SORTEIO DE PASSE ANUAL
+                        <span>PLAYSTATION PLUS DELUXE</span>
+                    </div>
+                    <div class="c-article__ads-description">
+                        Para participar é bem simples, a cada 200 reais de compra um cupom será enviado para seu email
+                        para o sorteio que acontecerá dia 10 de agosto de 2022.
+                        Não perde esse oportunidade e garanta um dos melhores catálogos disponíveis da PlayStation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer class="l-footer">
+        <div class="l-footer__wrapper">
+            <div class="c-footer__business">
+                <div class="c-footer__logo">
+                    <img src="images/business/logo.svg" alt="">
+                </div>
+                <div class="c-footer__address">
+                    <p>Rua dos Milagres, 316</p>
+                    <p>Pato Branco - Pasárgada</p>
+                    <p>CEP: 01.000-800</p>
+                </div>
+            </div>
+            <div class="c-footer__social-media">
+                <div class="c-footer__newsletter">
+                    <p>Receba as Últimas Novidades</p>
+                    <form onsubmit="cadastrarEmail()">    
+                        <div class="c-footer__input-group">
+                            <input required placeholder="Seu melhor E-mail" id="email" class="c-input" type="email">
+                            <button>Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="c-footer__social-links">
+                    <div class="c-footer__links-title">REDES SOCIAIS</div>
+                    <div class="c-footer__links">
+                        <i class="fa-brands fa-square-instagram"></i>
+                        <i class="fa-brands fa-square-facebook"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- Fim Bootstrap JS -->
+
+    <!-- JQuery -->
+    <script src="libs/jquery-3.6.0.min"></script>
+    <script type="module" src="libs/jquery-migrate/src/migrate.js"></script>
+    <!-- Fim JQuery -->
+    <script src="libs/slick/slick/slick.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/slick.js"></script>
+
+</body>
+
+</html>

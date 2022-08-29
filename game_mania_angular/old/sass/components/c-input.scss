@@ -1,0 +1,11 @@
+$component-name: "c-input";
+
+.#{$component-name} {
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    background-color: setColor(grey);
+    color: setColor(dark);
+    padding: 5px 10px;
+    width: 100%;
+}

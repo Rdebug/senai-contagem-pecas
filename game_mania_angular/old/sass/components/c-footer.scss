@@ -1,0 +1,79 @@
+$component-name: "c-footer";
+
+.#{$component-name} {
+    &__business{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+    }
+    &__logo{
+        height: 100px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__address{
+        text-align: center;
+        font-weight: setWeight(thin);
+        font-size: setSize(small);
+        p{
+            margin: 0;
+        }
+    }
+
+    &__social-media{
+        font-weight: setWeight(thin);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 30px;
+        width: 50%;
+        p{
+            margin: 0;
+            font-size: setSize(small);
+        }
+        input{
+            font-size: setSize(small);
+            border-radius: 4px 0px 0px 4px;
+            border: 1px solid setColor(green);
+        }
+        button{
+            border-radius: 0px 4px 4px 0px;
+        }
+        @include media-breakpoint-up(md)
+        {
+            margin-top: 0;
+        }
+    }
+
+    &__input-group{
+        display: flex;
+    }
+    &__social-links{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        i{
+            font-size:setSize(medium);
+            cursor: pointer;
+        }
+    }
+    &__links-title{
+        font-size:setSize(small);
+        font-weight: setWeight(bold);
+        margin-top: 20px;
+        
+    }
+    &__links{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+}

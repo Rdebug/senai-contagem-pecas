@@ -1,0 +1,18 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.form-login{
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+  background-image: url('../../assets/images/background-login.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.form-login__box{
+  background-color: white;
+  padding: 20px;
+  border-radius: 7px;
+}

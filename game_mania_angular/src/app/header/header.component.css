@@ -1,0 +1,190 @@
+.l-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 5px #6E6E6E;
+}
+@media (min-width: 768px) {
+  .l-header {
+    margin-bottom: 5px;
+  }
+}
+.l-header__wrapper {
+  display: flex;
+  background-color: #FFF;
+  height: 100px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .l-header__wrapper {
+    max-width: 780px;
+  }
+}
+@media (min-width: 992px) {
+  .l-header__wrapper {
+    max-width: 1200px;
+  }
+}
+
+.c-nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+}
+@media (min-width: 768px) {
+  .c-nav-toggle {
+    display: none;
+  }
+}
+.c-nav-toggle__menu {
+  color: #FFF;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.c-nav-toggle__menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.c-nav-toggle__menu-content li {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-nav-toggle__menu-content li #playstation {
+  background-color: #6290c8;
+}
+.c-nav-toggle__menu-content li #xbox {
+  background-color: #16f4d0;
+  color: #2f2f2f;
+}
+.c-nav-toggle__menu-content li #perifericos {
+  background-color: #c33149;
+}
+.c-nav-toggle__menu-content li #hardware {
+  background-color: #6E6E6E;
+}
+.c-nav-toggle__menu-content li a {
+  width: 80%;
+  text-align: center;
+  padding: 10px 0px;
+  border-radius: 7px;
+}
+.c-nav-toggle__menu-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.c-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.c-logo #logo {
+  height: 100px;
+  width: 100px;
+}
+@media (min-width: 768px) {
+  .c-logo {
+    justify-content: flex-start;
+    flex: none;
+  }
+}
+
+.c-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  flex: 1;
+}
+.c-search__input {
+  border-radius: 4px;
+  outline: none;
+  border: 2px solid #16f4d0;
+  width: 400px;
+  display: flex;
+  width: 90%;
+}
+.c-search__input input {
+  background-color: #F5F5F6;
+  color: #2f2f2f;
+  outline: none;
+  border: none;
+  height: 100%;
+  padding: 10px;
+  flex: 1;
+}
+.c-search__input i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F6;
+  padding: 0px 15px;
+  background-color: none;
+  cursor: pointer;
+  color: #2f2f2f;
+}
+@media (min-width: 768px) {
+  .c-search {
+    display: flex;
+  }
+}
+
+.c-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-cart i {
+  padding: 10px;
+  margin: 0 10px;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+.c-cart #favorite-icon {
+  display: none;
+}
+@media (min-width: 768px) {
+  .c-cart #favorite-icon {
+    display: block;
+  }
+  .c-cart #user-icon {
+    display: none;
+  }
+}
+
+.c-login {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}
+.c-login input {
+  padding: 5px 15px;
+  background-color: #6290c8;
+  color: #FFF;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #F5F5F6;
+  border-radius: 7px;
+}
+@media (min-width: 768px) {
+  .c-login {
+    display: flex;
+  }
+}

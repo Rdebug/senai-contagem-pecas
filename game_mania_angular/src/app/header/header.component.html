@@ -1,0 +1,31 @@
+<div class="c-nav-toggle__menu">
+  <div onclick="fecharMenu()" class="c-nav-toggle__menu-close">X</div>
+  <ul class="c-nav-toggle__menu-content">
+      <li><a id="playstation">PLAYSTATION</a></li>
+      <li><a id="xbox">XBOX</a></li>
+      <li><a id="perifericos">PERIFÉRICOS</a></li>
+      <li><a id="hardware">HARDWARE</a></li>
+  </ul>
+</div>
+<header class="l-header">
+  <div class="l-header__wrapper">
+      <div onclick="abrirMenu()" class="c-nav-toggle"><i class="fa-solid fa-bars"></i></div>
+      <div class="c-logo">
+          <object id="logo" alt="logo" data="../../assets/images/business/logo.svg"></object>
+      </div>
+      <div class="c-search">
+          <div class="c-search__input">
+              <input type="text" class="" placeholder="O que você procura?">
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+      </div>
+      <div class="c-cart">
+          <a routerLink="/login"><i id="user-icon" class="fa-solid fa-user"></i></a>
+          <i id="cart-icon" class="fa-solid fa-cart-shopping"></i>
+          <i id="favorite-icon" class="fa-solid fa-heart"></i>
+      </div>
+      <div class="c-login">
+          <a routerLink="/login"><input type="button" value="Login"></a>
+      </div>
+  </div>
+</header>

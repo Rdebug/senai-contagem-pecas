@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+// contém todas as redefinições, variáveis, mixins e classes de utilitários
+
+// Paleta de cores
+$colors: (
+    dark: #2f2f2f,
+    dark-shadow: #6E6E6E,
+    light-shadow: #FFF,
+    red: #c33149,
+    blue: #6290c8,
+    green: #16f4d0,
+    light: #FFF,
+    grey: #F5F5F6,
+    yellow: #c5c862
+
+);
+
+// Definir cor
+@function setColor($color) {
+    @return map-get($colors , $color );
+}
+
+// Define larguras e alturas  padrões para componentes do site
+$heightHeader: 100px;
+$heightNavbar: 40px;
+$heightFooter: 80px;
+$defaultMaxWidth: 1200px;
+$tabletMaxWidth: 780px;
+
+// Tamanhos padrões
+$sizes: (
+    small: 1.2em,
+    medium: 1.6em,
+    large: 2em
+);
+
+$weights:
+(
+    thin: 300,
+    normal: 500,
+    bold: 700
+);
+
+@function setWeight($weight)
+{
+    @return map-get($map: $weights, $key: $weight);
+}
+@function setSize($size)
+{
+    @return map-get($sizes, $size);
+}
+
+// Converte tamanho para EM
+@function convertToEM($pixels)
+{
+    $size : ($pixels / 10);
+    @return $size+em;
+}
+
+// Breakpoints
+$grid-breakpoints: (
+    xs: 0px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px) !default;
+
+@function breakpoint-min($name) {
+    $min: map-get($grid-breakpoints, $name
+);
+@return $min;
+}
+
+@mixin media-breakpoint-up($name) {
+    $min: breakpoint-min($name);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+//  ! Fim Breakpoint
+
+* {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+button{
+    background-color: setColor(blue);
+    color: setColor(light);
+    border-radius: 7px;
+    border: none;
+    padding: 5px 10px;
+}
+
+a{
+    color: setColor(dark);
+}

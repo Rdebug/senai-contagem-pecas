@@ -1,0 +1,27 @@
+$layout-name: "l-header";
+
+.#{$layout-name} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 5px setColor(dark-shadow);
+    @include media-breakpoint-up(md)
+    {
+        margin-bottom: 5px;
+    }
+  
+    &__wrapper {
+        display: flex;
+        background-color: setColor(light);
+        height: $heightHeader;
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            max-width: $tabletMaxWidth;
+        }
+
+        @include media-breakpoint-up(lg) {
+            max-width: $defaultMaxWidth;
+        }
+    }
+}

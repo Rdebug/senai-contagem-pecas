@@ -1,0 +1,61 @@
+.l-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.l-navbar__wrapper {
+  display: none;
+}
+@media (min-width: 768px) {
+  .l-navbar__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    height: 40px;
+    width: 100%;
+    max-width: 780px;
+  }
+}
+@media (min-width: 992px) {
+  .l-navbar__wrapper {
+    max-width: 1200px;
+  }
+}
+
+
+.c-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #FFF;
+  font-weight: 300;
+}
+.c-nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .c-nav a {
+    min-width: 250px;
+    font-size: 1.2em;
+  }
+}
+.c-nav #playstation {
+  background-color: #6290c8;
+}
+.c-nav #xbox {
+  background-color: #16f4d0;
+  color: #2f2f2f;
+}
+.c-nav #perifericos {
+  background-color: #c33149;
+}
+.c-nav #hardware {
+  background-color: #2f2f2f;
+}

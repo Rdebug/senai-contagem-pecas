@@ -1,0 +1,132 @@
+.l-main {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 100px - 80px);
+  background-color: #2f2f2f;
+}
+.l-main__wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 100px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 0px;
+}
+@media (min-width: 768px) {
+  .l-main__wrapper {
+    max-width: 780px;
+  }
+}
+@media (min-width: 992px) {
+  .l-main__wrapper {
+    max-width: 1200px;
+  }
+}
+
+.c-section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.c-section:not(:nth-child(2)) {
+  margin-top: 30px;
+}
+.c-section__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  font-weight: 700;
+}
+.c-section__title a {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px;
+  color: #6290c8;
+}
+.c-section__products {
+  flex: 1;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .c-section__products {
+    flex-direction: row;
+    margin-top: 0;
+  }
+}
+.c-section__more {
+  margin-top: 30px;
+  width: 300px;
+}
+.c-section__more button {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .c-section__more {
+    display: none;
+  }
+}
+
+.c-card {
+  background-color: white;
+  height: 350px;
+  width: 250px;
+  margin-top: 10px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .c-card {
+    margin-right: 10px;
+    margin-top: 0;
+  }
+}
+.c-card__image {
+  height: 60%;
+}
+.c-card__image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.c-card__title {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 1px 1px 5px #6E6E6E;
+}
+.c-card__title i {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.c-card__price {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.c-card__price p {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+.c-card__price small {
+  color: #6E6E6E;
+}
+.c-card__button {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 20%;
+}
