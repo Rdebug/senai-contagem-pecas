@@ -16,3 +16,12 @@
   padding: 20px;
   border-radius: 7px;
 }
+
+.form-msg{
+  background-color: rgb(253, 197, 197);
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px;
+}

@@ -18,6 +18,7 @@
       <div class="col-8 col-md-3 col-xs-8 mx-auto form-login__box">
         <form (ngSubmit)= "receberDados()">
           <img class="row mx-auto" height="100px" src="../../assets/images/business/logo.svg" alt="game-mania">
+          <div class="form-msg" *ngIf = "msgError !== ''">{{msgError}}</div>
           <div class="form-group">
             <input required placeholder="Digite seu E-mail" id="email" name="email" type="email" class="form-control" [(ngModel)]="userModel.email">
           </div>
